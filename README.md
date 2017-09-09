@@ -10,6 +10,9 @@ It is a repository of data structure and algorithm implemented in ES X, aka. ES6
 ## Build & Test
 
 ```
+# Install babel
+npm install babel -g
+
 # Install packages
 npm install
 
