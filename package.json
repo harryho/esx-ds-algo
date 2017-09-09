@@ -1,6 +1,6 @@
 {
   "name": "esx-ds-algo",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Data Structure and Algorithm with ES X",
   "main": "index.js",
   "directories": {

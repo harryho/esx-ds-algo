@@ -22,7 +22,7 @@ describe('Linked List Node', () => {
         let node = new LinkedListNode(1)
         assert.isNotNull(node.value)
         assert.equal(node.value, 1)
-    });
+    })
 
     it('should be able to create a new node with next node', () => {
         let node = new LinkedListNode(1)
@@ -30,7 +30,7 @@ describe('Linked List Node', () => {
         node.next = next
         assert.isNotNull(node.next)
         assert.equal(node.next.value, 2)
-    });
+    })
 })
 
 describe('Linked List', () => {
@@ -43,9 +43,9 @@ describe('Linked List', () => {
         assert.isNull(list.first)
         assert.isNull(list.last)
         assert.equal(list.count, 0)
-    });
+    })
 
-    it('should be able to create a new list and add one node', () => {
+    it('should be able to add one node to the list', () => {
 
         let list = new LinkedList()
         list.add(new LinkedListNode(1))
@@ -54,9 +54,20 @@ describe('Linked List', () => {
         assert.equal(list.first.value, 1)
         assert.equal(list.last.value, 1)
         assert.equal(list.count, 1)
-    });
+    })
 
-    it('should be able to create a new list and add new node as first node', () => {
+    it('should be able to add one item to the list', () => {
+
+        let list = new LinkedList()
+        list.add(1)
+
+        assert.isNotNull(list)
+        assert.equal(list.first.value, 1)
+        assert.equal(list.last.value, 1)
+        assert.equal(list.count, 1)
+    })
+
+    it('should be able to add new node as first node to the list', () => {
 
         let list = new LinkedList()
         list.add(new LinkedListNode(1))
@@ -65,9 +76,9 @@ describe('Linked List', () => {
         assert.equal(list.first.value, 2)
         assert.equal(list.last.value, 1)
         assert.equal(list.count, 2)
-    });
+    })
 
-    it('should be able to create a new list and add new node as last node', () => {
+    it('should be able to add new node as last node to the list', () => {
 
         let list = new LinkedList()
         list.add(new LinkedListNode(1))
@@ -76,7 +87,8 @@ describe('Linked List', () => {
         assert.equal(list.first.value, 1)
         assert.equal(list.last.value, 2)
         assert.equal(list.count, 2)
-    });
+    })
+    
 
     it('should be able to remove the first node from not empty list', () => {
 
@@ -88,7 +100,7 @@ describe('Linked List', () => {
 
         list.removeFirst()
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to remove the last node from not empty list', () => {
 
@@ -99,7 +111,20 @@ describe('Linked List', () => {
         list.removeLast()
         assert.equal(list.first.value, 2)
         assert.equal(list.count, 1)
-    });
+    })
+
+    it('should be able to remove the second node from the list with three nodes', () => {
+
+        let list = new LinkedList()
+        list.add(new LinkedListNode(1))
+        list.add(new LinkedListNode(2))
+        list.add(new LinkedListNode(3))
+
+        list.remove(2)
+        assert.equal(list.first.value, 3)
+        assert.equal(list.last.value, 1)
+        assert.equal(list.count, 2)
+    })
 
     it('should be able to remove all nodes from not empty list', () => {
 
@@ -110,7 +135,7 @@ describe('Linked List', () => {
         list.removeFirst()
         list.removeFirst()
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to clear all nodes', () => {
 
@@ -120,7 +145,7 @@ describe('Linked List', () => {
 
         list.clear()
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to find the node with the same number', () => {
 
@@ -128,7 +153,15 @@ describe('Linked List', () => {
         list.add(new LinkedListNode(1))
 
         assert.isTrue(list.contains(new LinkedListNode(1)))
-    });
+    })
+
+    it('should be able to find the item with the same value', () => {
+
+        let list = new LinkedList()
+        list.add(1)
+
+        assert.isTrue(list.contains(1))
+    })
 
     it('should be able to find the node with the same object', () => {
 
@@ -136,7 +169,7 @@ describe('Linked List', () => {
         list.add(new LinkedListNode({"key": "value"}))
 
         assert.isTrue(list.contains(new LinkedListNode({"key": "value"})))
-    });
+    })
 
     it('should be able to remove the node with the same object value', () => {
 
@@ -146,9 +179,19 @@ describe('Linked List', () => {
         assert.equal(list.count, 1)
         list.remove(new LinkedListNode({"key": "value"}))
         assert.equal(list.count, 0)
-    });
+    })
 
-    it('should be able to iterate all the nodes within the list', () => {
+    it('should be able to remove the item with the same object value', () => {
+
+        let list = new LinkedList()
+        list.add({"key": "value"})
+
+        assert.equal(list.count, 1)
+        list.remove({"key": "value"})
+        assert.equal(list.count, 0)
+    })
+
+    it('should be able to iterate all the nodes', () => {
 
         let list = new LinkedList()
         let v = 0
@@ -163,7 +206,7 @@ describe('Linked List', () => {
                 v -= 1
             }
         }
-    });
+    })
 
     it('should be able to copy all the value of to a new array', () => {
 
@@ -185,7 +228,7 @@ describe('Linked List', () => {
             }
         }
 
-    });
+    })
 })
 
 
@@ -194,7 +237,7 @@ describe('Doubly Linked List Node', () => {
         let node = new DoublyLinkedListNode(1)
         assert.isNotNull(node.value)
         assert.equal(node.value, 1)
-    });
+    })
 
     it('should be able to create a new node with next node', () => {
         let node = new DoublyLinkedListNode(1)
@@ -204,7 +247,7 @@ describe('Doubly Linked List Node', () => {
         assert.isNotNull(node.next)
         assert.equal(node.next.value, 2)
         assert.equal(next.previous.value, 1)
-    });
+    })
 })
 
 
@@ -218,9 +261,9 @@ describe('Doubly Linked List', () => {
         assert.isNull(list.first)
         assert.isNull(list.last)
         assert.equal(list.count, 0)
-    });
+    })
 
-    it('should be able to create a new list and add one node', () => {
+    it('should be able to add one node to the list', () => {
 
         let list = new DoublyLinkedList()
         list.add(new DoublyLinkedListNode(1))
@@ -229,9 +272,20 @@ describe('Doubly Linked List', () => {
         assert.equal(list.first.value, 1)
         assert.equal(list.last.value, 1)
         assert.equal(list.count, 1)
-    });
+    })
 
-    it('should be able to create a new list and add new node as first node', () => {
+    it('should be able to add one item to the list', () => {
+
+        let list = new DoublyLinkedList()
+        list.add(1)
+
+        assert.isNotNull(list)
+        assert.equal(list.first.value, 1)
+        assert.equal(list.last.value, 1)
+        assert.equal(list.count, 1)
+    })
+
+    it('should be able to add new node as first node to the list', () => {
 
         let list = new DoublyLinkedList()
         list.add(new DoublyLinkedListNode(1))
@@ -240,9 +294,9 @@ describe('Doubly Linked List', () => {
         assert.equal(list.first.value, 2)
         assert.equal(list.last.value, 1)
         assert.equal(list.count, 2)
-    });
+    })
 
-    it('should be able to create a new list and add new node as last node', () => {
+    it('should be able to add new node as last node to the list', () => {
 
         let list = new DoublyLinkedList()
         list.add(new DoublyLinkedListNode(1))
@@ -253,7 +307,7 @@ describe('Doubly Linked List', () => {
         assert.equal(list.last.value, 2)
         assert.equal(list.last.previous.value, 1)
         assert.equal(list.count, 2)
-    });
+    })
 
     it('should be able to remove the first node from not empty list', () => {
 
@@ -265,7 +319,7 @@ describe('Doubly Linked List', () => {
 
         list.removeFirst()
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to remove the last node from not empty list', () => {
 
@@ -276,7 +330,20 @@ describe('Doubly Linked List', () => {
         list.removeLast()
         assert.equal(list.first.value, 2)
         assert.equal(list.count, 1)
-    });
+    })
+
+   it('should be able to remove the second node from the list with three nodes', () => {
+
+        let list = new DoublyLinkedList()
+        list.add(new DoublyLinkedListNode(1))
+        list.add(new DoublyLinkedListNode(2))
+        list.add(new DoublyLinkedListNode(3))
+
+        list.remove(2)
+        assert.equal(list.first.value, 3)
+        assert.equal(list.last.value, 1)
+        assert.equal(list.count, 2)
+    })
 
     it('should be able to remove all nodes from not empty list', () => {
 
@@ -288,7 +355,7 @@ describe('Doubly Linked List', () => {
         list.removeFirst()
 
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to clear all nodes', () => {
 
@@ -298,7 +365,7 @@ describe('Doubly Linked List', () => {
 
         list.clear()
         assert.equal(list.count, 0)
-    });
+    })
 
     it('should be able to find the node with the same number', () => {
 
@@ -306,7 +373,15 @@ describe('Doubly Linked List', () => {
         list.add(new DoublyLinkedListNode(1))
 
         assert.isTrue(list.contains(new DoublyLinkedListNode(1)))
-    });
+    })
+
+     it('should be able to find the item with the same value', () => {
+
+        let list = new DoublyLinkedList()
+        list.add(1)
+
+        assert.isTrue(list.contains(1))
+    })
 
     it('should be able to find the node with the same object', () => {
 
@@ -314,7 +389,7 @@ describe('Doubly Linked List', () => {
         list.add(new DoublyLinkedListNode({"key": "value"}))
 
         assert.isTrue(list.contains(new DoublyLinkedListNode({"key": "value"})))
-    });
+    })
 
     it('should be able to remove the node with the same object value', () => {
 
@@ -324,9 +399,19 @@ describe('Doubly Linked List', () => {
         assert.equal(list.count, 1)
         list.remove(new DoublyLinkedListNode({"key": "value"}))
         assert.equal(list.count, 0)
-    });
+    })
 
-    it('should be able to iterate all the nodes within the list', () => {
+    it('should be able to remove the item with the same object value', () => {
+
+        let list = new DoublyLinkedList()
+        list.add({"key": "value"})
+
+        assert.equal(list.count, 1)
+        list.remove({"key": "value"})
+        assert.equal(list.count, 0)
+    })
+
+    it('should be able to iterate all the nodes', () => {
 
         let list = new DoublyLinkedList()
         let v = 0
@@ -342,7 +427,7 @@ describe('Doubly Linked List', () => {
                 v -= 1
             }
         }
-    });
+    })
 
     it('should be able to copy all the value of to a new array', () => {
 
@@ -364,6 +449,6 @@ describe('Doubly Linked List', () => {
             }
         }
 
-    });
+    })
 })
 

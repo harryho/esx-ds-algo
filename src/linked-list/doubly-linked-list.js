@@ -14,15 +14,9 @@ export class DoublyLinkedList {
     get first() {
         return this._first;
     }
-    set first(first) {
-        this._first = first;
-    }
 
     get last() {
         return this._last
-    }
-    set last(last) {
-        this._last = last
     }
 
     addFirst(node)
@@ -31,7 +25,7 @@ export class DoublyLinkedList {
         let temp = this.first;
 
         // Point first to the new node
-        this.first = node;
+        this._first = node;
 
         // Insert the rest of the list behind the first
         this.first.next = temp;
@@ -40,7 +34,7 @@ export class DoublyLinkedList {
 
         if (this._count == 1) {
             // if the list was empty then first and last should both point to the new node.
-            this.last = this.first;
+            this._last = this.first;
         } else {
             // Before: First -------> 2 <-> 3 -> null 
             // After:  First -> 1 <-> 2 <-> 3 -> null
@@ -52,7 +46,7 @@ export class DoublyLinkedList {
     addLast(node)
     {
         if (this._count == 0) {
-            this.first = node;
+            this._first = node;
         } else {
             this.last.next = node;
             // Before: First -> 1 <-> 2 -> null
@@ -60,7 +54,7 @@ export class DoublyLinkedList {
             node.previous = this.last
         }
 
-        this.last = node;
+        this._last = node;
 
         this._count++;
     }
@@ -70,11 +64,11 @@ export class DoublyLinkedList {
         if (this._count != 0) {
             // Before: First -> 1 -> 2 
             // After:  First ------> 2 
-            this.first = this.first.next;
+            this._first = this.first.next;
             this._count--;
 
             if (this._count == 0) {
-                this.last = null;
+                this._last = null;
             }
             else {
                 // 2.previous was 1, now null
@@ -87,14 +81,14 @@ export class DoublyLinkedList {
     {
         if (this._count != 0) {
             if (this._count == 1) {
-                this.first = null;
-                this.last = null;
+                this._first = null;
+                this._last = null;
             } else {
                 // Before: First --> 1 --> 2 --> 3   Last = 3
                 // After:  First --> 1 --> 2 --> null  Last = 2
                 // Null out 2's Next pointer
                 this.last.previous.next = null;
-                this.last = this.last.previous
+                this._last = this.last.previous
             }
             this._count--;
         }
@@ -104,14 +98,25 @@ export class DoublyLinkedList {
         return this._count
     }
 
+    /**
+     * Add an item or a DoublyLinkedListNode to the list
+     * @param {*} item 
+     */
     add(item)
     {
+        item = item instanceof DoublyLinkedListNode? item: new DoublyLinkedListNode(item)
         this.addFirst(item);
     }
 
+    /**
+     * Check an item or a DoublyLinkedListNode exists or not
+     * @param {*} item 
+     */
     contains(item)
     {
         let current = this.first;
+        item = item instanceof DoublyLinkedListNode? item: new DoublyLinkedListNode(item)
+
         while (current != null) {
             if (JSON.stringify(current.value) === JSON.stringify(item.value)) {
                 return true;
@@ -131,10 +136,15 @@ export class DoublyLinkedList {
         }
     }
 
+    /**
+     * Remove an item or a DoublyLinkedListNode from the list
+     * @param {*} item 
+     */
     remove(item)
     {
         let previous = null;
         let current = this.first;
+        item = item instanceof DoublyLinkedListNode? item: new DoublyLinkedListNode(item)
 
         while (current != null) {
             if (JSON.stringify(current.value) === JSON.stringify(item.value)) {
@@ -146,7 +156,7 @@ export class DoublyLinkedList {
 
                     // it was the end - so update last
                     if (current.next == null) {
-                        this.last = previous;
+                        this._last = previous;
                     }
                     else{
                         // Before: First -> 1 <-> 2 <-> 3 -> null
