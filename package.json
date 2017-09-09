@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "compile": "babel src  --compilers js:babel-core/register --out-dir dist --out-file dist/bundle.js",
+    "compile": "babel src  --compilers js:babel-core/register  --out-file dist/bundle.js",
     "test": "npm run compile && mocha test --compilers js:babel-core/register", 
     "watch": "npm run compile --watch && mocha test --watch --compilers js:babel-core/register",    
     "coverage": "npm run compile && babel-istanbul cover  ./node_modules/mocha/bin/_mocha test --watch --compilers js:babel-core/register -- --dir ./src"
