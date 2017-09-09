@@ -2,12 +2,36 @@
 
 const bundle = require('../dist/bundle')
 const HashTable = bundle.HashTable
+const HashTablePair = bundle.HashTablePair
 
 
 require('mocha')
 const chai = require('chai')
 const expect = chai.expect
 const assert = chai.assert
+
+
+describe('HashTablePair', () => {
+    it('should be able to create a new hashtable pair object', () => {
+        let pair = new HashTablePair()
+        assert.isNotNull(pair)
+        assert.isUndefined(pair.key)
+        assert.isUndefined(pair.value)
+    })
+
+    it('should be able to create a new hashtable pair with key-value', () => {
+        let pair = new HashTablePair('key', 'value')
+        assert.isNotNull(pair)
+        assert.equal(pair.key, 'key')
+        assert.equal(pair.value, 'value')
+
+        pair = new HashTablePair(1, 2)
+        assert.isNotNull(pair)
+        assert.equal(pair.key, 1)
+        assert.equal(pair.value, 2)
+    })
+
+})
 
 describe('HashTable', () => {
     it('should be able to create a new hashtable', () => {
@@ -40,13 +64,21 @@ describe('HashTable', () => {
         assert.equal(hashTable.count, 1)
     })
 
+     it('should throw error to add the same key of key-value to the hashtable', () => {
+        let hashTable = new HashTable(10)
+        hashTable.add('abc', 123)
+        expect(()=>hashTable.add('abc', 321)).to.throw(Error, "The collection already contains the key")
+    })
+
     it('should be able to get existing values by key', () => {
         let hashTable = new HashTable()
         hashTable.add('abc', 123)
         hashTable.add('array', [1,2,3])
 
-        assert.equal(hashTable.getValue('abc'), 123)
-        assert.deepEqual(hashTable.getValue('array'), [1,2,3])
+        let v1 = hashTable.getValue('abc')
+        let v2 = hashTable.getValue('array')
+        assert.equal(v1, 123)
+        assert.deepEqual(v2, [1,2,3])
     })
 
     it('should be able to remove existing values by key', () => {
@@ -84,7 +116,27 @@ describe('HashTable', () => {
   
     })
 
-    it('should be able to resize the capacity after add many key-value', () => {
+    it('should be able to resize the capacity manually', () => {
+        let hashTable = new HashTable(10)
+        assert.equal(hashTable.count, 0)
+        assert.equal(hashTable.capacity, 10)
+
+        hashTable.add('abc', 123)
+        hashTable.add('123', 123)
+        hashTable.add('ddd', 123)
+        hashTable.add('000', 123)
+        hashTable.add('qqq', 123)
+
+        assert.equal(hashTable.count, 5)
+        assert.equal(hashTable.capacity, 10)
+
+        hashTable.resize(20)
+        assert.equal(hashTable.count, 5)
+        assert.equal(hashTable.capacity, 20)
+    })
+
+
+    it('should be able to automatically resize the capacity after add many key-value', () => {
         let hashTable = new HashTable(2)
         assert.equal(hashTable.count, 0)
         assert.equal(hashTable.capacity, 2)
@@ -99,7 +151,7 @@ describe('HashTable', () => {
         assert.equal(hashTable.capacity, 8)
     })
 
-    it('should be able to resize the capacity after remove many key-value', () => {
+    it('should be able to automatically resize the capacity after remove many key-value', () => {
         let hashTable = new HashTable()
         assert.equal(hashTable.count, 0)
         assert.equal(hashTable.capacity, 100)
@@ -169,8 +221,7 @@ describe('HashTable', () => {
         
         assert.equal(hashTable.count, 3)
         assert.equal(hashTable.capacity, 10)
-        for ( let value of hashTable.values){     
-            console.log(value)       
+        for ( let value of hashTable.values){          
             assert.isTrue( _values.indexOf(value) >=0 )
         }            
     })

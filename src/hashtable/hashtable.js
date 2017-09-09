@@ -57,17 +57,21 @@ export class HashTable {
             this._array[index] = list;
         }
 
-        if (list.length > 0 && list.indexOf(key) >= 0) {
-            throw new Error("The collection already contains the key")
-        } else {
+        if (list.length > 0 ) {
+            for(let i = 0 ; i < list.length; i++ ){
+                if (list[i].key === key ){
+                   throw new Error("The collection already contains the key")
+                }
+            }            
+        } 
 
-            list.push(new HashTablePair(key, value))
-            this._count++;
+        list.push(new HashTablePair(key, value))
+        this._count++;
 
-            if (this._count > this._maxCurrentSize) {
-                this.resize(this._capacity * 2)
-            }
+        if (this._count > this._maxCurrentSize) {
+            this.resize(this._capacity * 2)
         }
+        
     }
 
 
