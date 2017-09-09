@@ -1,7 +1,6 @@
 # ESX-DS-ALGO
 
 [![Build Status](https://travis-ci.org/harryho/esx-ds-algo.svg?branch=master)](https://travis-ci.org/harryho/esx-ds-algo)
-
 [![Coverage Status](https://coveralls.io/repos/github/harryho/esx-ds-algo/badge.svg?branch=master)](https://coveralls.io/github/harryho/esx-ds-algo?branch=master)
 
 It is a repository of data structure and algorithm implemented in ES X, aka. ES6 or ES2015. 
@@ -40,3 +39,5 @@ Lines        : 88.1% ( 533/605 )
 ================================================================================
 
 ```
+
+
