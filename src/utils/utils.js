@@ -17,8 +17,7 @@ export const  Utils =  {
 
         if ( (typeof(a) == 'number' && typeof(b) == 'number' )
             || ( typeof(a) == 'string' && typeof(b) == 'string' ) ){
-           return (a > b ) ? 1 : 
-                        (a < b ? -1 : 0)
+           return (a > b ) ? 1 : (a < b ? -1 : 0)
         }
 
         // Date Time or object  comparison 
