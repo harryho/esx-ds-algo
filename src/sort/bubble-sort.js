@@ -1,6 +1,3 @@
-// import * as utils from 'utils/utils'
-
-// export default{
 export const BubbleSort ={
     sort:  (items)=>{
         let swapped = false 
@@ -20,6 +17,6 @@ export const BubbleSort ={
             }
         }
         while (swapped != false)
-        
+
     }
 }
