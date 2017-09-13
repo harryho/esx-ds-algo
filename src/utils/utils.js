@@ -33,5 +33,11 @@ export const  Utils =  {
         }
 
         throw new Error("Can not compare")
+    },
+
+    swap: (items, left , right) => {
+        let temp = items[left]
+        items[left] = items[right]
+        items[right] = temp
     }
 }

@@ -23,11 +23,9 @@ export const SelectionSort =
 
                 // Swap the values if current index is not the smallest index
                 if ( currentIndex !==  smallestIndex) {
-                    temp = items[currentIndex]
-                    items[currentIndex] = items[smallestIndex]
-                    items[smallestIndex] = temp
+                    Utils.swap(items, currentIndex, smallestIndex)
                 }
-                
+
                 sortedRangeEnd++;
             }
         }

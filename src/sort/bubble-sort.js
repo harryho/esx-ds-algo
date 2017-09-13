@@ -9,9 +9,7 @@ export const BubbleSort ={
 
             for (let i = 1; i < items.length; i++) {
                 if (Utils.compare(items[i - 1], items[i]) > 0) {   
-                    temp = items[i -1]
-                    items[i - 1] = items[i]
-                    items[i] = temp
+                    Utils.swap(items, i-1, i )
                     swapped = true
                 }
             }
