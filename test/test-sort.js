@@ -1,10 +1,13 @@
 'use strict'
 
 const bundle = require('../dist/bundle')
+
+const Utils = bundle.Utils
 const BubbleSort = bundle.BubbleSort
 const InsertionSort = bundle.InsertionSort
 const SelectionSort = bundle.SelectionSort
-const Utils = bundle.Utils
+const QuickSort = bundle.QuickSort
+const MergeSort = bundle.MergeSort
 
 require('mocha')
 const chai = require('chai')
@@ -121,4 +124,23 @@ describe('SelectionSort', () => {
         InsertionSort.sort(numbers)
         assert.deepEqual(numbers, [ '!' , '100' , '@' , 'A' , 'ABC' , 'abc' , 'cba'])
     })
+})
+
+
+describe('QuickSort', () => {
+    it('should be able to sort numbers - sample 1 ', () => {
+        let numbers = [ 4, 2, 5, 6, 1, 9]
+        QuickSort.sort(numbers)
+        assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
+    })
+})
+
+
+describe('MergeSort', () => {
+    it('should be able to sort numbers - sample 1 ', () => {
+        let numbers = [ 4, 2, 5, 6, 1, 9]
+        MergeSort.sort(numbers)
+        assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
+    })
+
 })
