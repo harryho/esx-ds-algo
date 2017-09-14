@@ -28,7 +28,6 @@ export const QuickSort =
 
                 for (let i = left; i < right; i++)
                 {
-                    console.log( ' i items[i] ', i, ' ',items[i], ' pivotValue ', pivotValue)
                     if (Utils.compare(items[i], pivotValue) < 0)
                     {
                         if ( i !== storeIndex ){

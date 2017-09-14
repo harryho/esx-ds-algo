@@ -8,6 +8,7 @@ const InsertionSort = bundle.InsertionSort
 const SelectionSort = bundle.SelectionSort
 const QuickSort = bundle.QuickSort
 const MergeSort = bundle.MergeSort
+const HeapSort = bundle.HeapSort
 
 require('mocha')
 const chai = require('chai')
@@ -143,4 +144,12 @@ describe('MergeSort', () => {
         assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
     })
 
+})
+
+describe('HeapSort', () => {
+    it('should be able to sort numbers - sample 1 ', () => {
+        let numbers = [ 4, 2, 5, 6, 1, 9]
+        HeapSort.sort(numbers)
+        assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
+    })
 })
