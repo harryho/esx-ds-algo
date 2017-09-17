@@ -165,6 +165,68 @@ describe('BinaryTree', () => {
         assert.equal(stack.join(''), 'abcdeghs')  
     })
 
+    it('should be able to sort characters in order after remove some numbers - sample 1', () => {
+        let tree = new BinaryTree()
+        let values  = [4,2,3,5,7,6,8,9]
+        // let i = 1
+        values.forEach( (e) => tree.add(e))
+ 
+        assert.isNotNull(tree)
+        assert.equal(tree.count, 8)
+
+        tree.remove(1)
+        let stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4, 5, 6, 7, 8, 9])
+      
+        tree.remove(5)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4,  6, 7, 8, 9])
+
+        tree.remove(3)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2,  4,  6, 7, 8, 9])
+    })
+
+
+
+    it('should be able to sort characters in order after remove some numbers - sample 2', () => {
+        let tree = new BinaryTree()
+        let values  = [4,2,7,4,3,5,7,5,6,4,8,9]
+        // let i = 1
+        values.forEach( (e) => tree.add(e))
+ 
+        assert.isNotNull(tree)
+        assert.equal(tree.count, 12)
+
+        tree.remove(1)
+        let stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4,4,4, 5,5 , 6, 7,7, 8, 9])
+      
+        tree.remove(5)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack,  [  2, 3, 4,4,4, 5 , 6, 7,7, 8, 9])
+
+        tree.remove(4)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4,4, 5 , 6, 7,7, 8, 9])
+
+        tree.remove(4)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4, 5 , 6, 7,7, 8, 9])
+
+        tree.remove(8)
+        stack = []
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.deepEqual(stack, [  2, 3, 4, 5 , 6, 7,7,  9])
+
+    })
 
     it('should be able to sort characters in order after remove some characters', () => {
         let tree = new BinaryTree()
@@ -179,6 +241,21 @@ describe('BinaryTree', () => {
 
         tree.inOrderTraversal((v)=>stack.push(v) )
         assert.equal(stack.join(''), 'abcddeghsy')  
+
+
+        tree.remove('d')
+        stack = []
+
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.equal(stack.join(''), 'abcdeghsy')  
+
+        tree.remove('h')
+        stack = []
+
+        tree.inOrderTraversal((v)=>stack.push(v) )
+        assert.equal(stack.join(''), 'abcdegsy')  
     })
+
+   
 
 })

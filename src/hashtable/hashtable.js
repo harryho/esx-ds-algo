@@ -176,7 +176,7 @@ export class HashTable {
 
             if (list){
                for ( let pair of list ){
-                   console.log(pair)
+                //    console.log(pair)
                    yield pair.key
                } 
             }

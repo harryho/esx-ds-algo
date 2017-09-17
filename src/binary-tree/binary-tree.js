@@ -167,8 +167,8 @@ export class BinaryTree
             else
             {
                 // find the right's left-most child
-                leftmost = current.right.left;
-                leftmostParent = current.right;
+                let leftmost = current.right.left;
+                let leftmostParent = current.right;
                 
                 while (leftmost.left != null)
                 {
