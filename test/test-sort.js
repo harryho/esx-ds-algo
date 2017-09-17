@@ -16,8 +16,7 @@ const expect = chai.expect
 const assert = chai.assert
 
 describe('Utils', () => {
-    it('should be able to compare numbers correctly ', () => {
-        
+    it('should be able to compare numbers correctly ', () => {        
         assert.isTrue(Utils.compare( 1, 2) < 0 )
         assert.isTrue(Utils.compare( 11, 2) > 0 )
         assert.isTrue(Utils.compare( -11, -11) == 0 )
@@ -134,6 +133,12 @@ describe('QuickSort', () => {
         QuickSort.sort(numbers)
         assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
     })
+
+    it('should be able to sort words - sample 2 ', () => {
+        let numbers = [ 'abc', 'ABC', 'cba', '100', 'A', '!', '@']
+        QuickSort.sort(numbers)
+        assert.deepEqual(numbers, [ '!' , '100' , '@' , 'A' , 'ABC' , 'abc' , 'cba'])
+    })
 })
 
 
@@ -144,6 +149,11 @@ describe('MergeSort', () => {
         assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
     })
 
+    it('should be able to sort words - sample 2 ', () => {
+        let numbers = [ 'abc', 'ABC', 'cba', '100', 'A', '!', '@']
+        MergeSort.sort(numbers)
+        assert.deepEqual(numbers, [ '!' , '100' , '@' , 'A' , 'ABC' , 'abc' , 'cba'])
+    })
 })
 
 describe('HeapSort', () => {
@@ -151,5 +161,11 @@ describe('HeapSort', () => {
         let numbers = [ 4, 2, 5, 6, 1, 9]
         HeapSort.sort(numbers)
         assert.deepEqual(numbers, [ 1, 2, 4, 5, 6, 9])
+    })
+
+    it('should be able to sort words - sample 2 ', () => {
+        let numbers = [ 'abc', 'ABC', 'cba', '100', 'A', '!', '@']
+        HeapSort.sort(numbers)
+        assert.deepEqual(numbers, [ '!' , '100' , '@' , 'A' , 'ABC' , 'abc' , 'cba'])
     })
 })
