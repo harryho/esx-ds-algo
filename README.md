@@ -7,7 +7,7 @@ It is a repository of data structure and algorithm implemented in ES X, aka. ES6
 
 ## Features
 
-* The repository is implemented with ES6 features instead of Vallina JS.
+* The repository is implemented with ES6 features instead of Vanilla JS.
 * Test comes with Mocha, Chai, Istanbul.
 
 ## Build & Test
