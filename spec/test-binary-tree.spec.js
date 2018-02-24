@@ -1,15 +1,8 @@
-'use strict'
-
-const bundle = require('../dist/bundle')
-const BinaryTree = bundle.BinaryTree
-const BinaryTreeNode = bundle.BinaryTreeNode
-
-
-require('mocha')
-const chai = require('chai')
-const expect = chai.expect
-const assert = chai.assert
-
+import {
+BinaryTree, BinaryTreeNode
+} from '../dist/bundle'
+import 'mocha'
+import {assert, expect} from 'chai'
 
 describe('BinaryTreeNode', () => {
     it('should be able to create a new binary tree node', () => {
@@ -40,7 +33,6 @@ describe('BinaryTreeNode', () => {
         assert.equal(node.right.value, 3)        
 
     })
-
 
     it('should be able to compare the number value', () => {
         let node = new BinaryTreeNode(1)

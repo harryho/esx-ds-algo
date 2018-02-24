@@ -1,32 +1,22 @@
-'use strict'
+import {
+    BubbleSort, InsertionSort, SelectionSort, MergeSort, HeapSort, QuickSort, Utils
+} from '../dist/bundle'
+import 'mocha'
+import {assert, expect} from 'chai'
 
-const bundle = require('../dist/bundle')
 
-const Utils = bundle.Utils
-const BubbleSort = bundle.BubbleSort
-const InsertionSort = bundle.InsertionSort
-const SelectionSort = bundle.SelectionSort
-const QuickSort = bundle.QuickSort
-const MergeSort = bundle.MergeSort
-const HeapSort = bundle.HeapSort
-
-require('mocha')
-const chai = require('chai')
-const expect = chai.expect
-const assert = chai.assert
-
-describe('Utils', () => {
-    it('should be able to compare numbers correctly ', () => {        
-        assert.isTrue(Utils.compare( 1, 2) < 0 )
-        assert.isTrue(Utils.compare( 11, 2) > 0 )
-        assert.isTrue(Utils.compare( -11, -11) == 0 )
-        assert.isTrue(Utils.compare( 'a', 'b') < 0 )
-        assert.isTrue(Utils.compare( 'a', 'a') == 0 )
-        assert.isTrue(Utils.compare( 'A', 'a') < 0 )
-        assert.isTrue(Utils.compare( '@', 'a') < 0 )
-        assert.isTrue(Utils.compare( 'abc', 'acb') < 0 )
-    })
-})
+// describe('Utils', () => {
+//     it('should be able to compare numbers correctly ', () => {        
+//         assert.isTrue(Utils.compare( 1, 2) < 0 )
+//         assert.isTrue(Utils.compare( 11, 2) > 0 )
+//         assert.isTrue(Utils.compare( -11, -11) == 0 )
+//         assert.isTrue(Utils.compare( 'a', 'b') < 0 )
+//         assert.isTrue(Utils.compare( 'a', 'a') == 0 )
+//         assert.isTrue(Utils.compare( 'A', 'a') < 0 )
+//         assert.isTrue(Utils.compare( '@', 'a') < 0 )
+//         assert.isTrue(Utils.compare( 'abc', 'acb') < 0 )
+//     })
+// })
 
 describe('BubbleSort', () => {
     it('should be able to sort numbers - sample 1 ', () => {

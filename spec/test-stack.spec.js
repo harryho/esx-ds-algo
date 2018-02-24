@@ -1,14 +1,9 @@
-'use strict'
+import {
+StackList, StackArray
+} from '../dist/bundle'
+import 'mocha'
+import {assert, expect} from 'chai'
 
-const bundle = require('../dist/bundle')
-const StackList = bundle.StackList
-const StackArray = bundle.StackArray
-const DoublyLinkedListNode = bundle.DoublyLinkedListNode
-const DoublyLinkedList = bundle.DoublyLinkedList
-require('mocha')
-const chai = require('chai')
-const expect = chai.expect
-const assert = chai.assert
 
 describe('StackList', () => {
     it('should be able to create a new stack', () => {

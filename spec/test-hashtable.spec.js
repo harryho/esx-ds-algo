@@ -1,15 +1,8 @@
-'use strict'
-
-const bundle = require('../dist/bundle')
-const HashTable = bundle.HashTable
-const HashTablePair = bundle.HashTablePair
-
-
-require('mocha')
-const chai = require('chai')
-const expect = chai.expect
-const assert = chai.assert
-
+import {
+    HashTablePair , HashTable
+} from '../dist/bundle'
+import 'mocha'
+import {assert, expect} from 'chai'
 
 describe('HashTablePair', () => {
     it('should be able to create a new hashtable pair object', () => {

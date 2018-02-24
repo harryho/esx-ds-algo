@@ -1,21 +1,10 @@
-// import {
-//     LinkedListNode, LinkedList, 
-//     DoublyLinkedListNode, DoublyLinkedList 
-// } from '../dist/bundle'
-// import 'mocha'
-// import {assert, expect} from 'chai'
+import {
+    LinkedListNode, LinkedList, 
+    DoublyLinkedListNode, DoublyLinkedList 
+} from '../dist/bundle'
+import 'mocha'
+import {assert, expect} from 'chai'
 
-'use strict'
-
-const bundle = require('../dist/bundle')
-const LinkedListNode = bundle.LinkedListNode
-const LinkedList = bundle.LinkedList
-const DoublyLinkedListNode = bundle.DoublyLinkedListNode
-const DoublyLinkedList = bundle.DoublyLinkedList
-require('mocha')
-const chai = require('chai')
-const expect = chai.expect
-const assert = chai.assert
 
 describe('Linked List Node', () => {
     it('should be able to create a new node', () => {

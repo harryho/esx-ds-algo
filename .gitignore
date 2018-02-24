@@ -9,4 +9,6 @@ test/e2e/reports
 selenium-debug.log
 server/
 coverage
-
+algo_p1_src/
+algo_p2_src/
+*gitignore*
