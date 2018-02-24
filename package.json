@@ -1,6 +1,6 @@
 {
   "name": "esx-ds-algo",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Data Structure and Algorithm with ES X",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
     "test": "npm run compile && mocha spec --compilers js:babel-core/register",
     "watch": "npm run compile --watch && mocha spec --watch --compilers js:babel-core/register",
     "coverage": "babel-istanbul cover  ./node_modules/mocha/bin/_mocha spec --watch --compilers js:babel-core/register -- --dir ./src",
-    "coveralls": "babel-istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "babel-istanbul cover ./node_modules/mocha/bin/_mocha spec --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "keywords": [
     "data structure",

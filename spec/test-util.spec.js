@@ -41,14 +41,12 @@ describe("Utils", () => {
         new Date("2017-01-01T00:00:00.000Z")
       ) == false
     );
-
     assert.isTrue(
       Utils.equals(
         new Date("2017-06-16T21:36:48.362Z"),
          "2017-06-16T21:36:48.362Z"
       ) == false
     );
-
     assert.isTrue(
       Utils.equals(new Date("2017-06-16T21:36:48.362Z"), {}) == false
     );
